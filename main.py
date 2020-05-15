@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 import time
 
 tz = pytz.timezone('Asia/Bangkok')
-refresh_time = "14:35"
+refresh_time = "14:42"
 
 mydb = mysql.connector.connect(
     host="127.0.0.1",

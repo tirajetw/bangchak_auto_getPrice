@@ -8,14 +8,20 @@ tz = pytz.timezone('Asia/Bangkok')
 refresh_time = "05:00"
 
 def spacial_round(num):
-    num = round(num,3)*10
-    if int(str(num)[-1]) < 5:
-        result = round(round(num)/10+0.05, 3)
-        print(result)
+    num = int(num*100)
+    temp = int(str(num)[-1])
+    print(temp)
+    if  temp == 0 :
+        result = num+0
+        result = result/100
         return result
-    else:
-        result = round(round(num)/10,3)
-        print(result)
+    elif temp <= 5 :
+        result = num+5-temp
+        result = result/100
+        return result
+    elif temp > 5 :
+        result = num+10-temp
+        result = result/100
         return result
 
 while True:

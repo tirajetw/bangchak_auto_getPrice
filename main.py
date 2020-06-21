@@ -5,7 +5,7 @@ import time
 from bs4 import BeautifulSoup
 
 tz = pytz.timezone('Asia/Bangkok')
-refresh_time = "05:00"
+refresh_time = "00:05"
 
 def spacial_round(num):
     num = int(num*100)
@@ -53,8 +53,14 @@ while True:
             print('Diesel\t: {} THB/L'.format(price_D))
             print('\n')
 
-            payload = "http://35.240.230.42/production/today_price.php?g91-c=" + str(price_G91) + "&g91-s=" + str(Sprice_G91) + "&g95-c=" + str(price_G95) + "&g95-s=" + str(Sprice_G95) + "&desel-c=" + str(price_D) + "&desel-s=" + str(Sprice_D)
-            # url = "http://35.240.230.42/production/today_price.php?g91-c=0&g91-s=0&g95-c=0&g95-s=0&desel-c=0&desel-s=0"
+            print('\nSell price')
+            print('G91\t: {} THB/L'.format(Sprice_G91))
+            print('G95\t: {} THB/L'.format(Sprice_G95))
+            print('Diesel\t: {} THB/L'.format(Sprice_D))
+            print('\n')
+
+            payload = "https://www.banthagroup.com/production/today_price.php?g91-c=" + str(price_G91) + "&g91-s=" + str(Sprice_G91) + "&g95-c=" + str(price_G95) + "&g95-s=" + str(Sprice_G95) + "&desel-c=" + str(price_D) + "&desel-s=" + str(Sprice_D)
+            # url = "https://www.banthagroup.com/production/today_price.php?g91-c=0&g91-s=0&g95-c=0&g95-s=0&desel-c=0&desel-s=0"
             data = requests.get(payload)
 
             print('send payload to server ,wait for refresh again')
